@@ -15,6 +15,7 @@ import torch
 from torch.utils.cpp_extension import BuildExtension, CppExtension, CUDAExtension, CUDA_HOME
 
 
+
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
@@ -40,24 +41,6 @@ def get_cuda_bare_metal_version(cuda_dir):
     return raw_output, bare_metal_version
 
 
-def check_cuda_torch_binary_vs_bare_metal(cuda_dir):
-    raw_output, bare_metal_version = get_cuda_bare_metal_version(cuda_dir)
-    torch_binary_version = parse(torch.version.cuda)
-
-    print("\nCompiling cuda extensions with")
-    print(raw_output + "from " + cuda_dir + "/bin\n")
-
-    if (bare_metal_version != torch_binary_version):
-        raise RuntimeError(
-            "Cuda extensions are being compiled with a version of Cuda that does "
-            "not match the version used to compile Pytorch binaries.  "
-            "Pytorch binaries were compiled with Cuda {}.\n".format(torch.version.cuda)
-            + "In some cases, a minor-version mismatch will not cause later errors:  "
-            "https://github.com/NVIDIA/apex/pull/323#discussion_r287021798.  "
-            "You can try commenting out this check (at your own risk)."
-        )
-
-
 def raise_if_cuda_home_none(global_option: str) -> None:
     if CUDA_HOME is not None:
         return
@@ -73,6 +56,8 @@ def append_nvcc_threads(nvcc_extra_args):
         return nvcc_extra_args + ["--threads", "4"]
     return nvcc_extra_args
 
+
+print("CUDA_HOME", CUDA_HOME)
 
 cmdclass = {}
 ext_modules = []
@@ -112,7 +97,7 @@ if not SKIP_CUDA_BUILD:
         CUDAExtension(
             name="volta_cutlass_gemm",
             sources=[
-                "csrc/gemm_api.cpp",
+                "csrc/gemm_api.cu",
             ],
             extra_compile_args={
                 "cxx": ["-O3", "-std=c++17"] + generator_flag,

@@ -8,8 +8,7 @@
 
 at::Tensor
 gemm_fp16(const at::Tensor &A,     
-        const at::Tensor &B,        
-        at::Tensor &C,
+        const at::Tensor &B  
 ){
     at::Tensor C;
     return C;
@@ -17,6 +16,6 @@ gemm_fp16(const at::Tensor &A,
 
 
 PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
-    m.doc("volta_cutlass_gemm"),
+    m.doc() = "volta_cutlass_gemm",
     m.def("gemm_fp16", &gemm_fp16, "gemm using volta fp16 tensor core based on cutlass");
 }
