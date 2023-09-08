@@ -24,7 +24,7 @@ at::Tensor gemm_fp16(const at::Tensor &A,
     TORCH_CHECK(is_half, "Volta FP16 GEMM supports fp16 data type only.");
     TORCH_CHECK(is_cuda, "Volta FP16 GEMM supports inputs on cuda device only.");
     TORCH_CHECK(is_contiguous, "Volta FP16 GEMM supports input with contiguous last dimension only.");
-    TORCH_CHECK(is_multiplicable, "Volta FP16 GEMM supports [m,k]x[k,n] only.")
+    TORCH_CHECK(is_multiplicable, "Volta FP16 GEMM supports [m,k]x[k,n] only.");
 
     const auto m = a_shape[0];
     const auto n = b_shape[1];
@@ -36,9 +36,9 @@ at::Tensor gemm_fp16(const at::Tensor &A,
     auto stream = at::cuda::getCurrentCUDAStream().stream();
     
     volta::Gemm_params params;
-    params.m = m;
-    params.n = n;
-    params.k = k;
+    params.M = m;
+    params.N = n;
+    params.K = k;
 
     at::Tensor C = torch::empty({m, n}, A.options());
     
@@ -53,6 +53,6 @@ at::Tensor gemm_fp16(const at::Tensor &A,
 
 
 PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
-    m.doc() = "volta_cutlass_gemm",
+    m.doc() = "backend for volta_cutlass_gemm",
     m.def("gemm_fp16", &gemm_fp16, "gemm using volta fp16 tensor core based on cutlass");
 }

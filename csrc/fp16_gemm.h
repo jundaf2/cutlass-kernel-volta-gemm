@@ -1,5 +1,4 @@
 #pragma once
-
 #include <cuda.h>
 #include <vector>
 
@@ -11,9 +10,9 @@ namespace volta {
         void *__restrict__ b_ptr;
         void *__restrict__ c_ptr;
 
-        index_t m;
-        index_t n;
-        index_t k;
+        index_t M;
+        index_t N;
+        index_t K;
     };
 
     void run_gemm_fp16(Gemm_params &params, cudaStream_t stream);

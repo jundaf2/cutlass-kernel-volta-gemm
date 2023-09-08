@@ -1,4 +1,17 @@
 #pragma once
 
-#include <ATen/cuda/CUDAContext.h>
 
+
+namespace volta{
+
+
+namespace kernel {
+
+__global__ void matmul_kernel(){
+
+
+}
+
+}
+
+}
