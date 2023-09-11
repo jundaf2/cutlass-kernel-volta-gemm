@@ -1,0 +1,2058 @@
+----------------------------
+(M,N,K):(64,64,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.035552 ms
+GFLOPs: 14.7471
+----------------------------
+(M,N,K):(64,64,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.01984 ms
+GFLOPs: 52.8516
+----------------------------
+(M,N,K):(64,64,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020256 ms
+GFLOPs: 103.532
+----------------------------
+(M,N,K):(64,64,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.026976 ms
+GFLOPs: 155.483
+----------------------------
+(M,N,K):(64,64,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.037376 ms
+GFLOPs: 224.438
+----------------------------
+(M,N,K):(64,64,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.067744 ms
+GFLOPs: 247.656
+----------------------------
+(M,N,K):(64,64,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.107456 ms
+GFLOPs: 312.262
+----------------------------
+(M,N,K):(64,128,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016608 ms
+GFLOPs: 63.1368
+----------------------------
+(M,N,K):(64,128,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017568 ms
+GFLOPs: 119.373
+----------------------------
+(M,N,K):(64,128,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020064 ms
+GFLOPs: 209.046
+----------------------------
+(M,N,K):(64,128,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.026688 ms
+GFLOPs: 314.321
+----------------------------
+(M,N,K):(64,128,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.038336 ms
+GFLOPs: 437.636
+----------------------------
+(M,N,K):(64,128,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.061888 ms
+GFLOPs: 542.18
+----------------------------
+(M,N,K):(64,128,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.105792 ms
+GFLOPs: 634.347
+----------------------------
+(M,N,K):(64,256,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.027168 ms
+GFLOPs: 77.192
+----------------------------
+(M,N,K):(64,256,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017472 ms
+GFLOPs: 240.059
+----------------------------
+(M,N,K):(64,256,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020416 ms
+GFLOPs: 410.884
+----------------------------
+(M,N,K):(64,256,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.026208 ms
+GFLOPs: 640.156
+----------------------------
+(M,N,K):(64,256,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.03744 ms
+GFLOPs: 896.219
+----------------------------
+(M,N,K):(64,256,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.06192 ms
+GFLOPs: 1083.8
+----------------------------
+(M,N,K):(64,256,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.115264 ms
+GFLOPs: 1164.44
+----------------------------
+(M,N,K):(64,512,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.026784 ms
+GFLOPs: 156.597
+----------------------------
+(M,N,K):(64,512,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017344 ms
+GFLOPs: 483.661
+----------------------------
+(M,N,K):(64,512,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02064 ms
+GFLOPs: 812.85
+----------------------------
+(M,N,K):(64,512,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.025792 ms
+GFLOPs: 1300.96
+----------------------------
+(M,N,K):(64,512,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.039008 ms
+GFLOPs: 1720.39
+----------------------------
+(M,N,K):(64,512,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.06432 ms
+GFLOPs: 2086.72
+----------------------------
+(M,N,K):(64,512,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.123584 ms
+GFLOPs: 2172.09
+----------------------------
+(M,N,K):(64,1024,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02608 ms
+GFLOPs: 321.649
+----------------------------
+(M,N,K):(64,1024,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.018144 ms
+GFLOPs: 924.67
+----------------------------
+(M,N,K):(64,1024,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02 ms
+GFLOPs: 1677.72
+----------------------------
+(M,N,K):(64,1024,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.027456 ms
+GFLOPs: 2444.23
+----------------------------
+(M,N,K):(64,1024,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.039744 ms
+GFLOPs: 3377.06
+----------------------------
+(M,N,K):(64,1024,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.067648 ms
+GFLOPs: 3968.12
+----------------------------
+(M,N,K):(64,1024,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.126816 ms
+GFLOPs: 4233.46
+----------------------------
+(M,N,K):(64,2048,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.015872 ms
+GFLOPs: 1057.03
+----------------------------
+(M,N,K):(64,2048,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016896 ms
+GFLOPs: 1985.94
+----------------------------
+(M,N,K):(64,2048,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020352 ms
+GFLOPs: 3297.41
+----------------------------
+(M,N,K):(64,2048,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.027136 ms
+GFLOPs: 4946.11
+----------------------------
+(M,N,K):(64,2048,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.042784 ms
+GFLOPs: 6274.2
+----------------------------
+(M,N,K):(64,2048,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.074464 ms
+GFLOPs: 7209.8
+----------------------------
+(M,N,K):(64,2048,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.130848 ms
+GFLOPs: 8206.02
+----------------------------
+(M,N,K):(64,4096,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.015808 ms
+GFLOPs: 2122.62
+----------------------------
+(M,N,K):(64,4096,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016864 ms
+GFLOPs: 3979.42
+----------------------------
+(M,N,K):(64,4096,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.024928 ms
+GFLOPs: 5384.22
+----------------------------
+(M,N,K):(64,4096,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02896 ms
+GFLOPs: 9269.18
+----------------------------
+(M,N,K):(64,4096,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.049568 ms
+GFLOPs: 10831
+----------------------------
+(M,N,K):(64,4096,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.0784 ms
+GFLOPs: 13695.7
+----------------------------
+(M,N,K):(64,4096,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.133312 ms
+GFLOPs: 16108.7
+----------------------------
+(M,N,K):(128,64,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016672 ms
+GFLOPs: 62.8944
+----------------------------
+(M,N,K):(128,64,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.0176 ms
+GFLOPs: 119.156
+----------------------------
+(M,N,K):(128,64,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02096 ms
+GFLOPs: 200.11
+----------------------------
+(M,N,K):(128,64,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.025792 ms
+GFLOPs: 325.241
+----------------------------
+(M,N,K):(128,64,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.037056 ms
+GFLOPs: 452.753
+----------------------------
+(M,N,K):(128,64,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.059296 ms
+GFLOPs: 565.88
+----------------------------
+(M,N,K):(128,64,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.106752 ms
+GFLOPs: 628.643
+----------------------------
+(M,N,K):(128,128,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016448 ms
+GFLOPs: 127.502
+----------------------------
+(M,N,K):(128,128,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017312 ms
+GFLOPs: 242.277
+----------------------------
+(M,N,K):(128,128,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020096 ms
+GFLOPs: 417.427
+----------------------------
+(M,N,K):(128,128,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.027008 ms
+GFLOPs: 621.194
+----------------------------
+(M,N,K):(128,128,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.038528 ms
+GFLOPs: 870.91
+----------------------------
+(M,N,K):(128,128,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.062784 ms
+GFLOPs: 1068.88
+----------------------------
+(M,N,K):(128,128,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.112576 ms
+GFLOPs: 1192.24
+----------------------------
+(M,N,K):(128,256,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.018592 ms
+GFLOPs: 225.597
+----------------------------
+(M,N,K):(128,256,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017344 ms
+GFLOPs: 483.661
+----------------------------
+(M,N,K):(128,256,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02048 ms
+GFLOPs: 819.2
+----------------------------
+(M,N,K):(128,256,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.034368 ms
+GFLOPs: 976.328
+----------------------------
+(M,N,K):(128,256,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.04192 ms
+GFLOPs: 1600.88
+----------------------------
+(M,N,K):(128,256,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.064992 ms
+GFLOPs: 2065.14
+----------------------------
+(M,N,K):(128,256,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.132576 ms
+GFLOPs: 2024.77
+----------------------------
+(M,N,K):(128,512,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017472 ms
+GFLOPs: 480.117
+----------------------------
+(M,N,K):(128,512,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017696 ms
+GFLOPs: 948.08
+----------------------------
+(M,N,K):(128,512,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.019936 ms
+GFLOPs: 1683.11
+----------------------------
+(M,N,K):(128,512,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.025888 ms
+GFLOPs: 2592.28
+----------------------------
+(M,N,K):(128,512,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.0424 ms
+GFLOPs: 3165.51
+----------------------------
+(M,N,K):(128,512,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.070272 ms
+GFLOPs: 3819.95
+----------------------------
+(M,N,K):(128,512,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.137632 ms
+GFLOPs: 3900.77
+----------------------------
+(M,N,K):(128,1024,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020032 ms
+GFLOPs: 837.521
+----------------------------
+(M,N,K):(128,1024,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.018272 ms
+GFLOPs: 1836.39
+----------------------------
+(M,N,K):(128,1024,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.021536 ms
+GFLOPs: 3116.12
+----------------------------
+(M,N,K):(128,1024,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.028032 ms
+GFLOPs: 4788.02
+----------------------------
+(M,N,K):(128,1024,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.043296 ms
+GFLOPs: 6200.01
+----------------------------
+(M,N,K):(128,1024,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.07424 ms
+GFLOPs: 7231.56
+----------------------------
+(M,N,K):(128,1024,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.139264 ms
+GFLOPs: 7710.12
+----------------------------
+(M,N,K):(128,2048,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017728 ms
+GFLOPs: 1892.74
+----------------------------
+(M,N,K):(128,2048,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017184 ms
+GFLOPs: 3905.31
+----------------------------
+(M,N,K):(128,2048,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.030368 ms
+GFLOPs: 4419.71
+----------------------------
+(M,N,K):(128,2048,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.025248 ms
+GFLOPs: 10631.9
+----------------------------
+(M,N,K):(128,2048,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.04512 ms
+GFLOPs: 11898.7
+----------------------------
+(M,N,K):(128,2048,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.082368 ms
+GFLOPs: 13035.9
+----------------------------
+(M,N,K):(128,2048,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.144992 ms
+GFLOPs: 14811
+----------------------------
+(M,N,K):(128,4096,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.018848 ms
+GFLOPs: 3560.53
+----------------------------
+(M,N,K):(128,4096,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020224 ms
+GFLOPs: 6636.56
+----------------------------
+(M,N,K):(128,4096,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.021632 ms
+GFLOPs: 12409.2
+----------------------------
+(M,N,K):(128,4096,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.030816 ms
+GFLOPs: 17421.8
+----------------------------
+(M,N,K):(128,4096,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.050848 ms
+GFLOPs: 21116.7
+----------------------------
+(M,N,K):(128,4096,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.081472 ms
+GFLOPs: 26358.5
+----------------------------
+(M,N,K):(128,4096,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.142112 ms
+GFLOPs: 30222.4
+----------------------------
+(M,N,K):(256,64,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016224 ms
+GFLOPs: 129.262
+----------------------------
+(M,N,K):(256,64,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017728 ms
+GFLOPs: 236.592
+----------------------------
+(M,N,K):(256,64,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020768 ms
+GFLOPs: 403.92
+----------------------------
+(M,N,K):(256,64,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.026944 ms
+GFLOPs: 622.67
+----------------------------
+(M,N,K):(256,64,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.037408 ms
+GFLOPs: 896.985
+----------------------------
+(M,N,K):(256,64,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.063232 ms
+GFLOPs: 1061.31
+----------------------------
+(M,N,K):(256,64,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.11504 ms
+GFLOPs: 1166.7
+----------------------------
+(M,N,K):(256,128,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.01712 ms
+GFLOPs: 244.994
+----------------------------
+(M,N,K):(256,128,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017472 ms
+GFLOPs: 480.117
+----------------------------
+(M,N,K):(256,128,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020608 ms
+GFLOPs: 814.112
+----------------------------
+(M,N,K):(256,128,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.028032 ms
+GFLOPs: 1197
+----------------------------
+(M,N,K):(256,128,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.04016 ms
+GFLOPs: 1671.04
+----------------------------
+(M,N,K):(256,128,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.0632 ms
+GFLOPs: 2123.7
+----------------------------
+(M,N,K):(256,128,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.127456 ms
+GFLOPs: 2106.1
+----------------------------
+(M,N,K):(256,256,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017696 ms
+GFLOPs: 474.04
+----------------------------
+(M,N,K):(256,256,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.018208 ms
+GFLOPs: 921.42
+----------------------------
+(M,N,K):(256,256,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02112 ms
+GFLOPs: 1588.75
+----------------------------
+(M,N,K):(256,256,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.026816 ms
+GFLOPs: 2502.57
+----------------------------
+(M,N,K):(256,256,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.03888 ms
+GFLOPs: 3452.1
+----------------------------
+(M,N,K):(256,256,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.079168 ms
+GFLOPs: 3390.71
+----------------------------
+(M,N,K):(256,256,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.14032 ms
+GFLOPs: 3826.05
+----------------------------
+(M,N,K):(256,512,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.018016 ms
+GFLOPs: 931.24
+----------------------------
+(M,N,K):(256,512,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016896 ms
+GFLOPs: 1985.94
+----------------------------
+(M,N,K):(256,512,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.019648 ms
+GFLOPs: 3415.56
+----------------------------
+(M,N,K):(256,512,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02704 ms
+GFLOPs: 4963.67
+----------------------------
+(M,N,K):(256,512,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.038016 ms
+GFLOPs: 7061.12
+----------------------------
+(M,N,K):(256,512,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.071008 ms
+GFLOPs: 7560.71
+----------------------------
+(M,N,K):(256,512,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.134112 ms
+GFLOPs: 8006.31
+----------------------------
+(M,N,K):(256,1024,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.015936 ms
+GFLOPs: 2105.57
+----------------------------
+(M,N,K):(256,1024,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.018176 ms
+GFLOPs: 3692.17
+----------------------------
+(M,N,K):(256,1024,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02048 ms
+GFLOPs: 6553.6
+----------------------------
+(M,N,K):(256,1024,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.027648 ms
+GFLOPs: 9709.04
+----------------------------
+(M,N,K):(256,1024,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.042592 ms
+GFLOPs: 12605
+----------------------------
+(M,N,K):(256,1024,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.07344 ms
+GFLOPs: 14620.7
+----------------------------
+(M,N,K):(256,1024,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.14432 ms
+GFLOPs: 14880
+----------------------------
+(M,N,K):(256,2048,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.01568 ms
+GFLOPs: 4279.9
+----------------------------
+(M,N,K):(256,2048,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017728 ms
+GFLOPs: 7570.95
+----------------------------
+(M,N,K):(256,2048,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020096 ms
+GFLOPs: 13357.7
+----------------------------
+(M,N,K):(256,2048,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.027872 ms
+GFLOPs: 19262
+----------------------------
+(M,N,K):(256,2048,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.044512 ms
+GFLOPs: 24122.5
+----------------------------
+(M,N,K):(256,2048,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.078208 ms
+GFLOPs: 27458.6
+----------------------------
+(M,N,K):(256,2048,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.138048 ms
+GFLOPs: 31112.1
+----------------------------
+(M,N,K):(256,4096,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016544 ms
+GFLOPs: 8112.77
+----------------------------
+(M,N,K):(256,4096,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.019296 ms
+GFLOPs: 13911.5
+----------------------------
+(M,N,K):(256,4096,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020256 ms
+GFLOPs: 26504.3
+----------------------------
+(M,N,K):(256,4096,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.030368 ms
+GFLOPs: 35357.7
+----------------------------
+(M,N,K):(256,4096,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.047616 ms
+GFLOPs: 45100
+----------------------------
+(M,N,K):(256,4096,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.076544 ms
+GFLOPs: 56111.1
+----------------------------
+(M,N,K):(256,4096,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.13952 ms
+GFLOPs: 61567.8
+----------------------------
+(M,N,K):(512,64,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016256 ms
+GFLOPs: 258.016
+----------------------------
+(M,N,K):(512,64,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.019584 ms
+GFLOPs: 428.34
+----------------------------
+(M,N,K):(512,64,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.0232 ms
+GFLOPs: 723.156
+----------------------------
+(M,N,K):(512,64,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.029984 ms
+GFLOPs: 1119.08
+----------------------------
+(M,N,K):(512,64,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.038144 ms
+GFLOPs: 1759.36
+----------------------------
+(M,N,K):(512,64,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.060768 ms
+GFLOPs: 2208.69
+----------------------------
+(M,N,K):(512,64,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.12848 ms
+GFLOPs: 2089.32
+----------------------------
+(M,N,K):(512,128,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.01616 ms
+GFLOPs: 519.097
+----------------------------
+(M,N,K):(512,128,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.0176 ms
+GFLOPs: 953.251
+----------------------------
+(M,N,K):(512,128,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020736 ms
+GFLOPs: 1618.17
+----------------------------
+(M,N,K):(512,128,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.027296 ms
+GFLOPs: 2458.56
+----------------------------
+(M,N,K):(512,128,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.039072 ms
+GFLOPs: 3435.14
+----------------------------
+(M,N,K):(512,128,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.0672 ms
+GFLOPs: 3994.58
+----------------------------
+(M,N,K):(512,128,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.128832 ms
+GFLOPs: 4167.22
+----------------------------
+(M,N,K):(512,256,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.015872 ms
+GFLOPs: 1057.03
+----------------------------
+(M,N,K):(512,256,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017216 ms
+GFLOPs: 1949.03
+----------------------------
+(M,N,K):(512,256,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02096 ms
+GFLOPs: 3201.76
+----------------------------
+(M,N,K):(512,256,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.036736 ms
+GFLOPs: 3653.57
+----------------------------
+(M,N,K):(512,256,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.038752 ms
+GFLOPs: 6927.01
+----------------------------
+(M,N,K):(512,256,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.06944 ms
+GFLOPs: 7731.44
+----------------------------
+(M,N,K):(512,256,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.128032 ms
+GFLOPs: 8386.51
+----------------------------
+(M,N,K):(512,512,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016096 ms
+GFLOPs: 2084.64
+----------------------------
+(M,N,K):(512,512,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016928 ms
+GFLOPs: 3964.37
+----------------------------
+(M,N,K):(512,512,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02064 ms
+GFLOPs: 6502.8
+----------------------------
+(M,N,K):(512,512,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.027264 ms
+GFLOPs: 9845.78
+----------------------------
+(M,N,K):(512,512,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.038112 ms
+GFLOPs: 14086.7
+----------------------------
+(M,N,K):(512,512,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.07264 ms
+GFLOPs: 14781.7
+----------------------------
+(M,N,K):(512,512,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.13552 ms
+GFLOPs: 15846.2
+----------------------------
+(M,N,K):(512,1024,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.015584 ms
+GFLOPs: 4306.27
+----------------------------
+(M,N,K):(512,1024,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017056 ms
+GFLOPs: 7869.24
+----------------------------
+(M,N,K):(512,1024,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.019616 ms
+GFLOPs: 13684.5
+----------------------------
+(M,N,K):(512,1024,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.026016 ms
+GFLOPs: 20636.2
+----------------------------
+(M,N,K):(512,1024,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.044736 ms
+GFLOPs: 24001.7
+----------------------------
+(M,N,K):(512,1024,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.075072 ms
+GFLOPs: 28605.7
+----------------------------
+(M,N,K):(512,1024,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.137984 ms
+GFLOPs: 31126.6
+----------------------------
+(M,N,K):(512,2048,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016 ms
+GFLOPs: 8388.61
+----------------------------
+(M,N,K):(512,2048,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017408 ms
+GFLOPs: 15420.2
+----------------------------
+(M,N,K):(512,2048,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.021824 ms
+GFLOPs: 24600
+----------------------------
+(M,N,K):(512,2048,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.027776 ms
+GFLOPs: 38657.2
+----------------------------
+(M,N,K):(512,2048,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.045856 ms
+GFLOPs: 46831
+----------------------------
+(M,N,K):(512,2048,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.075712 ms
+GFLOPs: 56727.7
+----------------------------
+(M,N,K):(512,2048,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.136128 ms
+GFLOPs: 63101.9
+----------------------------
+(M,N,K):(512,4096,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.019584 ms
+GFLOPs: 13706.9
+----------------------------
+(M,N,K):(512,4096,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02208 ms
+GFLOPs: 24314.8
+----------------------------
+(M,N,K):(512,4096,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.028544 ms
+GFLOPs: 37617.1
+----------------------------
+(M,N,K):(512,4096,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.04256 ms
+GFLOPs: 50457.8
+----------------------------
+(M,N,K):(512,4096,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.067584 ms
+GFLOPs: 63550.1
+----------------------------
+(M,N,K):(512,4096,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.116864 ms
+GFLOPs: 73503.7
+----------------------------
+(M,N,K):(512,4096,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.215808 ms
+GFLOPs: 79607.2
+----------------------------
+(M,N,K):(1024,64,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016064 ms
+GFLOPs: 522.199
+----------------------------
+(M,N,K):(1024,64,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016992 ms
+GFLOPs: 987.36
+----------------------------
+(M,N,K):(1024,64,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020672 ms
+GFLOPs: 1623.18
+----------------------------
+(M,N,K):(1024,64,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.027008 ms
+GFLOPs: 2484.78
+----------------------------
+(M,N,K):(1024,64,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.047488 ms
+GFLOPs: 2826.35
+----------------------------
+(M,N,K):(1024,64,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.070432 ms
+GFLOPs: 3811.27
+----------------------------
+(M,N,K):(1024,64,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.133664 ms
+GFLOPs: 4016.57
+----------------------------
+(M,N,K):(1024,128,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017312 ms
+GFLOPs: 969.109
+----------------------------
+(M,N,K):(1024,128,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017856 ms
+GFLOPs: 1879.17
+----------------------------
+(M,N,K):(1024,128,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020352 ms
+GFLOPs: 3297.41
+----------------------------
+(M,N,K):(1024,128,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.026656 ms
+GFLOPs: 5035.18
+----------------------------
+(M,N,K):(1024,128,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.039136 ms
+GFLOPs: 6859.04
+----------------------------
+(M,N,K):(1024,128,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.07264 ms
+GFLOPs: 7390.84
+----------------------------
+(M,N,K):(1024,128,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.136 ms
+GFLOPs: 7895.16
+----------------------------
+(M,N,K):(1024,256,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.015424 ms
+GFLOPs: 2175.47
+----------------------------
+(M,N,K):(1024,256,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.018464 ms
+GFLOPs: 3634.58
+----------------------------
+(M,N,K):(1024,256,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.021248 ms
+GFLOPs: 6316.72
+----------------------------
+(M,N,K):(1024,256,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.027584 ms
+GFLOPs: 9731.56
+----------------------------
+(M,N,K):(1024,256,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.04128 ms
+GFLOPs: 13005.6
+----------------------------
+(M,N,K):(1024,256,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.071936 ms
+GFLOPs: 14926.3
+----------------------------
+(M,N,K):(1024,256,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.136416 ms
+GFLOPs: 15742.2
+----------------------------
+(M,N,K):(1024,512,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016 ms
+GFLOPs: 4194.3
+----------------------------
+(M,N,K):(1024,512,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017696 ms
+GFLOPs: 7584.64
+----------------------------
+(M,N,K):(1024,512,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020512 ms
+GFLOPs: 13086.8
+----------------------------
+(M,N,K):(1024,512,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02608 ms
+GFLOPs: 20585.5
+----------------------------
+(M,N,K):(1024,512,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.043328 ms
+GFLOPs: 24781.7
+----------------------------
+(M,N,K):(1024,512,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.082016 ms
+GFLOPs: 26183.7
+----------------------------
+(M,N,K):(1024,512,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.136096 ms
+GFLOPs: 31558.4
+----------------------------
+(M,N,K):(1024,1024,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016256 ms
+GFLOPs: 8256.5
+----------------------------
+(M,N,K):(1024,1024,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.022144 ms
+GFLOPs: 12122.3
+----------------------------
+(M,N,K):(1024,1024,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.021248 ms
+GFLOPs: 25266.9
+----------------------------
+(M,N,K):(1024,1024,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.0368 ms
+GFLOPs: 29177.8
+----------------------------
+(M,N,K):(1024,1024,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.05328 ms
+GFLOPs: 40305.6
+----------------------------
+(M,N,K):(1024,1024,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.076864 ms
+GFLOPs: 55877.5
+----------------------------
+(M,N,K):(1024,1024,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.139296 ms
+GFLOPs: 61666.8
+----------------------------
+(M,N,K):(1024,2048,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.01984 ms
+GFLOPs: 13530
+----------------------------
+(M,N,K):(1024,2048,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02256 ms
+GFLOPs: 23797.5
+----------------------------
+(M,N,K):(1024,2048,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.028768 ms
+GFLOPs: 37324.2
+----------------------------
+(M,N,K):(1024,2048,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.041856 ms
+GFLOPs: 51306.5
+----------------------------
+(M,N,K):(1024,2048,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.066624 ms
+GFLOPs: 64465.8
+----------------------------
+(M,N,K):(1024,2048,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.116928 ms
+GFLOPs: 73463.5
+----------------------------
+(M,N,K):(1024,2048,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.214368 ms
+GFLOPs: 80141.9
+----------------------------
+(M,N,K):(1024,4096,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.031232 ms
+GFLOPs: 17189.8
+----------------------------
+(M,N,K):(1024,4096,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.036032 ms
+GFLOPs: 29799.7
+----------------------------
+(M,N,K):(1024,4096,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.050784 ms
+GFLOPs: 42286.6
+----------------------------
+(M,N,K):(1024,4096,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.073952 ms
+GFLOPs: 58077.8
+----------------------------
+(M,N,K):(1024,4096,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.12272 ms
+GFLOPs: 69996.2
+----------------------------
+(M,N,K):(1024,4096,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.226688 ms
+GFLOPs: 75786.4
+----------------------------
+(M,N,K):(1024,4096,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.429408 ms
+GFLOPs: 80016.5
+----------------------------
+(M,N,K):(2048,64,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.01568 ms
+GFLOPs: 1069.98
+----------------------------
+(M,N,K):(2048,64,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.019264 ms
+GFLOPs: 1741.82
+----------------------------
+(M,N,K):(2048,64,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020352 ms
+GFLOPs: 3297.41
+----------------------------
+(M,N,K):(2048,64,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.03344 ms
+GFLOPs: 4013.69
+----------------------------
+(M,N,K):(2048,64,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.043776 ms
+GFLOPs: 6132.02
+----------------------------
+(M,N,K):(2048,64,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.077888 ms
+GFLOPs: 6892.86
+----------------------------
+(M,N,K):(2048,64,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.136256 ms
+GFLOPs: 7880.33
+----------------------------
+(M,N,K):(2048,128,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.01536 ms
+GFLOPs: 2184.53
+----------------------------
+(M,N,K):(2048,128,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.018944 ms
+GFLOPs: 3542.49
+----------------------------
+(M,N,K):(2048,128,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.022912 ms
+GFLOPs: 5857.97
+----------------------------
+(M,N,K):(2048,128,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02784 ms
+GFLOPs: 9642.08
+----------------------------
+(M,N,K):(2048,128,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.047904 ms
+GFLOPs: 11207.2
+----------------------------
+(M,N,K):(2048,128,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.081312 ms
+GFLOPs: 13205.2
+----------------------------
+(M,N,K):(2048,128,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.142496 ms
+GFLOPs: 15070.5
+----------------------------
+(M,N,K):(2048,256,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016608 ms
+GFLOPs: 4040.76
+----------------------------
+(M,N,K):(2048,256,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.028064 ms
+GFLOPs: 4782.56
+----------------------------
+(M,N,K):(2048,256,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.02048 ms
+GFLOPs: 13107.2
+----------------------------
+(M,N,K):(2048,256,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.027424 ms
+GFLOPs: 19576.7
+----------------------------
+(M,N,K):(2048,256,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.0456 ms
+GFLOPs: 23547
+----------------------------
+(M,N,K):(2048,256,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.07632 ms
+GFLOPs: 28137.9
+----------------------------
+(M,N,K):(2048,256,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.140896 ms
+GFLOPs: 30483.2
+----------------------------
+(M,N,K):(2048,512,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020896 ms
+GFLOPs: 6423.13
+----------------------------
+(M,N,K):(2048,512,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.017568 ms
+GFLOPs: 15279.8
+----------------------------
+(M,N,K):(2048,512,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020608 ms
+GFLOPs: 26051.6
+----------------------------
+(M,N,K):(2048,512,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.028384 ms
+GFLOPs: 37829.1
+----------------------------
+(M,N,K):(2048,512,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.046176 ms
+GFLOPs: 46506.5
+----------------------------
+(M,N,K):(2048,512,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.07728 ms
+GFLOPs: 55576.7
+----------------------------
+(M,N,K):(2048,512,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.141248 ms
+GFLOPs: 60814.6
+----------------------------
+(M,N,K):(2048,1024,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.021952 ms
+GFLOPs: 12228.3
+----------------------------
+(M,N,K):(2048,1024,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.023712 ms
+GFLOPs: 22641.3
+----------------------------
+(M,N,K):(2048,1024,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.030976 ms
+GFLOPs: 34663.7
+----------------------------
+(M,N,K):(2048,1024,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.041408 ms
+GFLOPs: 51861.6
+----------------------------
+(M,N,K):(2048,1024,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.06656 ms
+GFLOPs: 64527.8
+----------------------------
+(M,N,K):(2048,1024,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.114112 ms
+GFLOPs: 75276.3
+----------------------------
+(M,N,K):(2048,1024,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.216096 ms
+GFLOPs: 79501.1
+----------------------------
+(M,N,K):(2048,2048,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.03184 ms
+GFLOPs: 16861.5
+----------------------------
+(M,N,K):(2048,2048,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.037248 ms
+GFLOPs: 28826.8
+----------------------------
+(M,N,K):(2048,2048,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.049184 ms
+GFLOPs: 43662.2
+----------------------------
+(M,N,K):(2048,2048,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.07328 ms
+GFLOPs: 58610.4
+----------------------------
+(M,N,K):(2048,2048,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.122912 ms
+GFLOPs: 69886.9
+----------------------------
+(M,N,K):(2048,2048,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.228032 ms
+GFLOPs: 75339.7
+----------------------------
+(M,N,K):(2048,2048,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.434976 ms
+GFLOPs: 78992.3
+----------------------------
+(M,N,K):(2048,4096,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.047808 ms
+GFLOPs: 22459.5
+----------------------------
+(M,N,K):(2048,4096,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.057696 ms
+GFLOPs: 37220.7
+----------------------------
+(M,N,K):(2048,4096,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.082816 ms
+GFLOPs: 51861.6
+----------------------------
+(M,N,K):(2048,4096,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.133632 ms
+GFLOPs: 64280.5
+----------------------------
+(M,N,K):(2048,4096,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.235712 ms
+GFLOPs: 72885
+----------------------------
+(M,N,K):(2048,4096,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.429568 ms
+GFLOPs: 79986.7
+----------------------------
+(M,N,K):(2048,4096,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.875136 ms
+GFLOPs: 78524.3
+----------------------------
+(M,N,K):(4096,64,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.015936 ms
+GFLOPs: 2105.57
+----------------------------
+(M,N,K):(4096,64,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.016992 ms
+GFLOPs: 3949.44
+----------------------------
+(M,N,K):(4096,64,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020384 ms
+GFLOPs: 6584.46
+----------------------------
+(M,N,K):(4096,64,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.027616 ms
+GFLOPs: 9720.29
+----------------------------
+(M,N,K):(4096,64,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.049376 ms
+GFLOPs: 10873.1
+----------------------------
+(M,N,K):(4096,64,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.077184 ms
+GFLOPs: 13911.5
+----------------------------
+(M,N,K):(4096,64,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.15328 ms
+GFLOPs: 14010.2
+----------------------------
+(M,N,K):(4096,128,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.01568 ms
+GFLOPs: 4279.9
+----------------------------
+(M,N,K):(4096,128,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.018144 ms
+GFLOPs: 7397.36
+----------------------------
+(M,N,K):(4096,128,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020224 ms
+GFLOPs: 13273.1
+----------------------------
+(M,N,K):(4096,128,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.029312 ms
+GFLOPs: 18315.7
+----------------------------
+(M,N,K):(4096,128,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.050528 ms
+GFLOPs: 21250.4
+----------------------------
+(M,N,K):(4096,128,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.07984 ms
+GFLOPs: 26897.3
+----------------------------
+(M,N,K):(4096,128,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.151392 ms
+GFLOPs: 28369.8
+----------------------------
+(M,N,K):(4096,256,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.01584 ms
+GFLOPs: 8473.34
+----------------------------
+(M,N,K):(4096,256,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.01696 ms
+GFLOPs: 15827.6
+----------------------------
+(M,N,K):(4096,256,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.020832 ms
+GFLOPs: 25771.5
+----------------------------
+(M,N,K):(4096,256,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.0288 ms
+GFLOPs: 37282.7
+----------------------------
+(M,N,K):(4096,256,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.0512 ms
+GFLOPs: 41943
+----------------------------
+(M,N,K):(4096,256,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.07856 ms
+GFLOPs: 54671.2
+----------------------------
+(M,N,K):(4096,256,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.151456 ms
+GFLOPs: 56715.7
+----------------------------
+(M,N,K):(4096,512,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.031008 ms
+GFLOPs: 8656.97
+----------------------------
+(M,N,K):(4096,512,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.022688 ms
+GFLOPs: 23663.2
+----------------------------
+(M,N,K):(4096,512,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.029344 ms
+GFLOPs: 36591.5
+----------------------------
+(M,N,K):(4096,512,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.042208 ms
+GFLOPs: 50878.6
+----------------------------
+(M,N,K):(4096,512,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.067104 ms
+GFLOPs: 64004.6
+----------------------------
+(M,N,K):(4096,512,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.117472 ms
+GFLOPs: 73123.3
+----------------------------
+(M,N,K):(4096,512,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.222048 ms
+GFLOPs: 77370.1
+----------------------------
+(M,N,K):(4096,1024,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.030272 ms
+GFLOPs: 17734.9
+----------------------------
+(M,N,K):(4096,1024,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.03664 ms
+GFLOPs: 29305.2
+----------------------------
+(M,N,K):(4096,1024,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.048864 ms
+GFLOPs: 43948.2
+----------------------------
+(M,N,K):(4096,1024,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.07744 ms
+GFLOPs: 55461.9
+----------------------------
+(M,N,K):(4096,1024,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.130112 ms
+GFLOPs: 66019.5
+----------------------------
+(M,N,K):(4096,1024,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.231296 ms
+GFLOPs: 74276.6
+----------------------------
+(M,N,K):(4096,1024,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.444288 ms
+GFLOPs: 77336.6
+----------------------------
+(M,N,K):(4096,2048,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.046208 ms
+GFLOPs: 23237.1
+----------------------------
+(M,N,K):(4096,2048,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.057504 ms
+GFLOPs: 37344.9
+----------------------------
+(M,N,K):(4096,2048,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.083968 ms
+GFLOPs: 51150
+----------------------------
+(M,N,K):(4096,2048,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.142848 ms
+GFLOPs: 60133.4
+----------------------------
+(M,N,K):(4096,2048,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.24064 ms
+GFLOPs: 71392.4
+----------------------------
+(M,N,K):(4096,2048,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.437504 ms
+GFLOPs: 78535.8
+----------------------------
+(M,N,K):(4096,2048,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.900864 ms
+GFLOPs: 76281.7
+----------------------------
+(M,N,K):(4096,4096,64)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.083648 ms
+GFLOPs: 25672.9
+----------------------------
+(M,N,K):(4096,4096,128)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.099872 ms
+GFLOPs: 43004.7
+----------------------------
+(M,N,K):(4096,4096,256)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.154464 ms
+GFLOPs: 55611.2
+----------------------------
+(M,N,K):(4096,4096,512)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.254368 ms
+GFLOPs: 67539.4
+----------------------------
+(M,N,K):(4096,4096,1024)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.448704 ms
+GFLOPs: 76575.5
+----------------------------
+(M,N,K):(4096,4096,2048)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 0.820064 ms
+GFLOPs: 83797.7
+----------------------------
+(M,N,K):(4096,4096,4096)
+workspace_size: 0
+Volta Half GEMM:
+Runtime: 1.59219 ms
+GFLOPs: 86320.6

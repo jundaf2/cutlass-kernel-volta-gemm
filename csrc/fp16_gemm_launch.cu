@@ -1,9 +1,7 @@
+#include <cuda_device_runtime_api.h>
 #include <iostream>
 #include "fp16_gemm_kernel.cuh"
 #include "fp16_gemm.h"
-
-#include <cute/algorithm/copy.hpp>
-#include <cute/algorithm/gemm.hpp>
 
 #include <cutlass/cutlass.h>
 #include <cutlass/array.h>
@@ -67,9 +65,8 @@ using Gemm = cutlass::gemm::device::Gemm<ElementInputA,
                                          SwizzleThreadBlock,
                                          NumStages>;
 
+template<bool DoTime>
 void launch_matmul_kernel(Gemm_params &params, cudaStream_t stream) {
-    
-
     // Create a tuple of problem size for matrix multiplication
     cutlass::gemm::GemmCoord problem_size(params.M, params.N, params.K);
 
@@ -94,33 +91,39 @@ void launch_matmul_kernel(Gemm_params &params, cudaStream_t stream) {
                                         split_k_slices};        // <- k-dimension split factor
 
     // Instantiate CUTLASS kernel depending on templates
-    Gemm gemm_op;
+    Gemm gemm_traits;
     // Check the problem size is supported or not 
-    cutlass::Status status = gemm_op.can_implement(arguments);
+    cutlass::Status status = gemm_traits.can_implement(arguments);
     CUTLASS_CHECK(status);
+    
+    GpuTimer timer;
+    if constexpr (DoTime) timer.start();
 
-    // Using the arguments, query for extra workspace required for matrix multiplication computation
-    size_t workspace_size = Gemm::get_workspace_size(arguments);
-    // Allocate workspace memory
-    cutlass::device_memory::allocation<uint8_t> workspace(workspace_size);
-    std::cout << "workspace_size: " << workspace_size << std::endl;
+    // method 1: Launch initialized CUTLASS kernel
+    // status = gemm_traits(arguments);
+    // CUTLASS_CHECK(status);
+    
+    // method 2: Launch kernel written in CUTE
+    {   
+        Gemm::ThreadblockSwizzle threadblock_swizzle;
+        cutlass::gemm::GemmCoord grid_shape = threadblock_swizzle.get_tiled_shape(problem_size,  {Gemm::ThreadblockShape::kM, Gemm::ThreadblockShape::kN, Gemm::ThreadblockShape::kK}, split_k_slices);
+        // std::cout << "m n k " << grid_shape.m() << " " << grid_shape.n() << " " << grid_shape.k() << std::endl;
+        dim3 dimGrid(grid_shape.m(),grid_shape.n(), grid_shape.k());
+        dim3 dimBlock(Gemm::GemmKernel::kThreadCount);
+        
+        kernel::gemm<<<dimGrid, dimBlock, 0, stream>>>(gemm_traits, arguments);
+        CUTE_CHECK_LAST();
+    }
 
-    // Launch initialized CUTLASS kernel
-    status = gemm_op(arguments);
-    CUTLASS_CHECK(status);
+    if constexpr (DoTime){
+        timer.stop();
+        double runtime = timer.elapsed_millis();
+        double gflops = 2 * double(problem_size.product()) / 1e6 / runtime; // Two flops per multiply-add
 
-    // constexpr int BM = 64;
-    // constexpr int BN = 64;
-    // constexpr int WM = 16;
-    // constexpr int WN = 16;
-    // constexpr int NUM_WARPS = (BM*BN)/(WM*WN);
-
-    // const int BX = (params.N + BN - 1) / BN;
-    // const int BY = (params.M + BM - 1) / BM;
-    // dim3 grid(BX, BN);
-    // cutlass::gemm::warp::WarpSize<typename OperatorClass>
-    // dim3 block();
-    // kernel::matmul_kernel<<<,,0,stream>>>(params, stream);
+        std::cout << "Volta Half GEMM" << ":\n";
+        std::cout << "Runtime: " << runtime << " ms\n";
+        std::cout << "GFLOPs: " << gflops  << "\n";
+    }
 }
     
 void run_gemm_fp16(Gemm_params &params, cudaStream_t stream) {
@@ -143,6 +146,6 @@ void run_gemm_fp16(Gemm_params &params, cudaStream_t stream) {
         return;   
     }
 
-    launch_matmul_kernel(params, stream);
+    launch_matmul_kernel<true>(params, stream);
 }
 }
