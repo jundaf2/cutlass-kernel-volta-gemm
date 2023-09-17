@@ -303,7 +303,7 @@ namespace wmma_kernel{
 using namespace nvcuda;
 using half_t = __half;
 using index_t = unsigned int;
-typedef int4 copy_t;
+typedef int copy_t;
 
 template <int BM, int BN, int BK, int WM, int WN>
 __global__ void gemm(
@@ -313,16 +313,17 @@ __global__ void gemm(
     const index_t block_n = blockIdx.x;
     const index_t block_m = blockIdx.y;
     const index_t thread_id = threadIdx.x;
-    const index_t lane_id = thread_id % 32; 
-    const index_t warp_id = thread_id / 32;
 
-    constexpr index_t APAD = 8;
-    constexpr index_t BPAD = 8;
+    constexpr index_t WARP_SIZE = 32;
+    constexpr index_t PAD = 8;
     constexpr index_t TC = 16;
-    constexpr index_t LDST_ELT_NUM = 8; 
+    constexpr index_t LDST_ELT_NUM = sizeof(copy_t)/sizeof(half_t); 
 
-    __shared__ half_t smem_a[BM][BK + APAD]; // [128, 32]
-    __shared__ half_t smem_b[BK][BN + BPAD]; // [32, 128]
+    const index_t lane_id = thread_id % WARP_SIZE; 
+    const index_t warp_id = thread_id / WARP_SIZE;
+
+    __shared__ half_t smem_a[BM][BK + PAD]; // [128, 32]
+    __shared__ half_t smem_b[BK][BN + PAD]; // [32, 128]
 
     constexpr index_t kNWarps = (BM/WM)*(BN/WN);
     constexpr index_t kThreadsPerBlock = kNWarps*32;
@@ -341,26 +342,28 @@ __global__ void gemm(
     }
 
     // A copy thread Layout = [128, 4], [64,  8]
-    constexpr index_t THR_SHAPE_A_K = BK/LDST_ELT_NUM; 
+    constexpr index_t THR_SHAPE_A_K = std::min(BK/LDST_ELT_NUM, WARP_SIZE); 
     constexpr index_t THR_SHAPE_A_M = kThreadsPerBlock/THR_SHAPE_A_K; 
     const index_t thr_layout_a_m = thread_id / THR_SHAPE_A_K;
     const index_t thr_layout_a_k =  thread_id % THR_SHAPE_A_K;
 
     // B copy thread Layout = [32, 16], [32, 16]
-    constexpr index_t THR_SHAPE_B_N = BN/LDST_ELT_NUM;
+    constexpr index_t THR_SHAPE_B_N = std::min(BN/LDST_ELT_NUM, WARP_SIZE); 
     constexpr index_t THR_SHAPE_B_K = kThreadsPerBlock/THR_SHAPE_B_N;
     const index_t thr_layout_b_k = thread_id / THR_SHAPE_B_N;
     const index_t thr_layout_b_n = thread_id % THR_SHAPE_B_N;
-
+    
+    constexpr index_t MEM_A_CTA_K = THR_SHAPE_A_K*LDST_ELT_NUM;
+    constexpr index_t MEM_B_CTA_N = THR_SHAPE_B_N*LDST_ELT_NUM;
+    constexpr index_t MEM_A_CTA_K_NUM = BK/MEM_A_CTA_K;
+    constexpr index_t MEM_B_CTA_N_NUM = BN/MEM_B_CTA_N;
     constexpr index_t THR_STRIDE_A_M = BM/THR_SHAPE_A_M;
-    constexpr index_t THR_STRIDE_A_K = BK/THR_SHAPE_A_K;
-    constexpr index_t THR_STRIDE_B_N = BN/THR_SHAPE_B_N;
     constexpr index_t THR_STRIDE_B_K = BK/THR_SHAPE_B_K;
 
-    const index_t smem_thr_store_a_m = thr_layout_a_m * THR_STRIDE_A_M;
-    const index_t smem_thr_store_a_k = thr_layout_a_k * THR_STRIDE_A_K;
-    const index_t smem_thr_store_b_k = thr_layout_b_k * THR_STRIDE_B_K;
-    const index_t smem_thr_store_b_n = thr_layout_b_n * THR_STRIDE_B_N;
+    const index_t smem_thr_store_a_m = thr_layout_a_m * THR_STRIDE_A_M; // strided
+    const index_t smem_thr_store_a_k = thr_layout_a_k * LDST_ELT_NUM;   // contiguous
+    const index_t smem_thr_store_b_k = thr_layout_b_k * THR_STRIDE_B_K; // strided
+    const index_t smem_thr_store_b_n = thr_layout_b_n * LDST_ELT_NUM;   // contiguous
 
     const index_t gmem_local_tile_m = block_m * BM;
     const index_t gmem_local_tile_n = block_n * BN;
@@ -371,41 +374,47 @@ __global__ void gemm(
     index_t warp_m = warp_id / (BM/WM);
     index_t warp_n = warp_id % (BM/WM);
 
+    
     #pragma nounroll
     for (index_t k_loop = 0; k_loop < K / BK; k_loop++) {
+
+      #pragma unroll
+      for(index_t mem_a_cta_k = 0; mem_a_cta_k < MEM_A_CTA_K_NUM; mem_a_cta_k++) {
         #pragma unroll
         for(index_t smem_a_load_m = 0; smem_a_load_m < THR_STRIDE_A_M; smem_a_load_m++) {
-            *reinterpret_cast<copy_t*>(&smem_a[smem_thr_store_a_m + smem_a_load_m][smem_thr_store_a_k]) = *reinterpret_cast<copy_t*>(&A[gmem_thr_load_c_m + smem_a_load_m*K]);
+            *reinterpret_cast<copy_t*>(&smem_a[smem_thr_store_a_m + smem_a_load_m][smem_thr_store_a_k + mem_a_cta_k*MEM_A_CTA_K]) = *reinterpret_cast<copy_t*>(&A[gmem_thr_load_c_m + smem_a_load_m*K + mem_a_cta_k*MEM_A_CTA_K]);
         }
+      }
         
-        
+      #pragma unroll
+      for(index_t mem_b_cta_n = 0; mem_b_cta_n < MEM_B_CTA_N_NUM; mem_b_cta_n++) {
         #pragma unroll
         for(index_t smem_b_load_k = 0; smem_b_load_k < THR_STRIDE_B_K; smem_b_load_k++) {
-            *reinterpret_cast<copy_t*>(&smem_b[smem_thr_store_b_k + smem_b_load_k][smem_thr_store_b_n]) = *reinterpret_cast<copy_t*>(&B[gmem_thr_load_c_n + smem_b_load_k*N]);
+            *reinterpret_cast<copy_t*>(&smem_b[smem_thr_store_b_k + smem_b_load_k][smem_thr_store_b_n + mem_b_cta_n*MEM_B_CTA_N]) = *reinterpret_cast<copy_t*>(&B[gmem_thr_load_c_n + smem_b_load_k*N + mem_b_cta_n*MEM_B_CTA_N]);
         }
+      }
 
+      gmem_thr_load_c_m += BK;
+      gmem_thr_load_c_n += BK * N;
 
-        gmem_thr_load_c_m += BK;
-        gmem_thr_load_c_n += BK * N;
+      __syncthreads();
 
-        __syncthreads();
+      #pragma unroll
+      for(index_t k = 0; k < WARP_K_LOOP; k++){
+        wmma::fragment<wmma::matrix_a, TC, TC, TC, half_t, wmma::row_major> frag_a[WARP_M_LOOP];
+        wmma::fragment<wmma::matrix_b, TC, TC, TC, half_t, wmma::row_major> frag_b[WARP_N_LOOP];
 
         #pragma unroll
-        for(index_t k = 0; k < WARP_K_LOOP; k++){
-          wmma::fragment<wmma::matrix_a, TC, TC, TC, half_t, wmma::row_major> frag_a[WARP_M_LOOP];
-          wmma::fragment<wmma::matrix_b, TC, TC, TC, half_t, wmma::row_major> frag_b[WARP_N_LOOP];
-
-          #pragma unroll
-          for (index_t m = 0; m < WARP_M_LOOP; m++) {
-              wmma::load_matrix_sync(frag_a[m], &smem_a[warp_m * WM + m*TC][k*TC], BK + APAD);
-              #pragma unroll
-              for (index_t n = 0; n < WARP_N_LOOP; n++) {
-                wmma::load_matrix_sync(frag_b[n], &smem_b[k*TC][warp_n * WN + n*TC], BN + BPAD);
-                wmma::mma_sync(frag_acc[m][n], frag_a[m], frag_b[n], frag_acc[m][n]);
-              }
-          }
+        for (index_t m = 0; m < WARP_M_LOOP; m++) {
+            wmma::load_matrix_sync(frag_a[m], &smem_a[warp_m * WM + m * TC][k * TC], BK + PAD);
+            #pragma unroll
+            for (index_t n = 0; n < WARP_N_LOOP; n++) {
+              wmma::load_matrix_sync(frag_b[n], &smem_b[k * TC][warp_n * WN + n * TC], BN + PAD);
+              wmma::mma_sync(frag_acc[m][n], frag_a[m], frag_b[n], frag_acc[m][n]);
+            }
         }
-        __syncthreads();
+      }
+      __syncthreads();
     }
 
     const index_t gmem_thr_store_c_m = block_m * BM + warp_m * WM;
