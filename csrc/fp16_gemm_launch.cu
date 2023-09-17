@@ -114,7 +114,7 @@ void launch_matmul_kernel(Gemm_params &params, cudaStream_t stream) {
     {
         constexpr int BM = 128;
         constexpr int BN = 128;
-        constexpr int BK = 32;
+        constexpr int BK = 64;
         constexpr int WM = 32;
         constexpr int WN = 32;
 
