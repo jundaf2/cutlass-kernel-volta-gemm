@@ -3,6 +3,8 @@
 #include "fp16_gemm_kernel.cuh"
 #include "fp16_gemm.h"
 
+#include <cuda_runtime.h>
+#include <cuda_fp16.h>
 #include <cutlass/cutlass.h>
 #include <cutlass/array.h>
 #include <cutlass/numeric_types.h>
@@ -10,6 +12,7 @@
 #include "cutlass/util/device_memory.h"
 #include "cutlass/gemm/device/gemm.h"
 #include "helper.h"
+#include "typeinfo"
 
 namespace volta {
 
@@ -32,7 +35,7 @@ using SmArch = cutlass::arch::Sm70;
 // This code section describes the tile size a thread block will compute
 using ShapeMMAThreadBlock = cutlass::gemm::GemmShape<128, 128, 32>;  // <- threadblock tile M = 128, N = 128, K = 32
 // This code section describes tile size a warp will compute
-using ShapeMMAWarp = cutlass::gemm::GemmShape<64, 64, 32>;  // <- warp tile M = 64, N = 64, K = 32 
+using ShapeMMAWarp = cutlass::gemm::GemmShape<64, 64, 32>;  // <- warp tile M = 64, N = 64, K = 32
 // This code section describes the size of MMA op
 using ShapeMMAOp = cutlass::gemm::GemmShape<8, 8, 4>;  // <- MMA Op tile M = 8, N = 8, K = 4
 
@@ -65,64 +68,87 @@ using Gemm = cutlass::gemm::device::Gemm<ElementInputA,
                                          SwizzleThreadBlock,
                                          NumStages>;
 
+
+
 template<bool DoTime>
 void launch_matmul_kernel(Gemm_params &params, cudaStream_t stream) {
-    // Create a tuple of problem size for matrix multiplication
-    cutlass::gemm::GemmCoord problem_size(params.M, params.N, params.K);
-
-    typename cutlass::TensorRef<ElementInputA, LayoutInputA> tensor_a(reinterpret_cast<ElementInputA* >(params.a_ptr), params.K);
-    typename cutlass::TensorRef<ElementInputB, LayoutInputB> tensor_b(reinterpret_cast<ElementInputB* >(params.b_ptr), params.N);
-    typename cutlass::TensorRef<ElementOutput, LayoutOutput> tensor_c(reinterpret_cast<ElementOutput* >(params.c_ptr), params.N);
-
-    // Initialize alpha and beta for dot product computation
-    ElementComputeEpilogue alpha = ElementComputeEpilogue(1);
-    ElementComputeEpilogue beta = ElementComputeEpilogue(0);
-
-    // Split K dimension into 1 partitions
-    int split_k_slices = 1;
-
-    // Create a tuple of gemm kernel arguments. This is later passed as arguments to launch instantiated CUTLASS kernel
-    typename Gemm::Arguments arguments{problem_size,  // <- problem size of matrix multiplication
-                                        tensor_a,  // <- reference to matrix A on device
-                                        tensor_b,  // <- reference to matrix B on device
-                                        tensor_c,  // <- reference to matrix C on device
-                                        tensor_c,  // <- reference to matrix D on device
-                                        {alpha, beta},          // <- tuple of alpha and beta
-                                        split_k_slices};        // <- k-dimension split factor
-
-    // Instantiate CUTLASS kernel depending on templates
-    Gemm gemm_traits;
-    // Check the problem size is supported or not 
-    cutlass::Status status = gemm_traits.can_implement(arguments);
-    CUTLASS_CHECK(status);
-    
     GpuTimer timer;
     if constexpr (DoTime) timer.start();
 
     // method 1: Launch initialized CUTLASS kernel
-    // status = gemm_traits(arguments);
-    // CUTLASS_CHECK(status);
-    
-    // method 2: Launch kernel written in CUTE
-    {   
-        Gemm::ThreadblockSwizzle threadblock_swizzle;
-        cutlass::gemm::GemmCoord grid_shape = threadblock_swizzle.get_tiled_shape(problem_size,  {Gemm::ThreadblockShape::kM, Gemm::ThreadblockShape::kN, Gemm::ThreadblockShape::kK}, split_k_slices);
-        // std::cout << "m n k " << grid_shape.m() << " " << grid_shape.n() << " " << grid_shape.k() << std::endl;
-        dim3 dimGrid(grid_shape.m(),grid_shape.n(), grid_shape.k());
-        dim3 dimBlock(Gemm::GemmKernel::kThreadCount);
-        
-        kernel::gemm<<<dimGrid, dimBlock, 0, stream>>>(gemm_traits, arguments);
-        CUTE_CHECK_LAST();
+    if (params.backend == Backend::CUTLASS) {
+        // Create a tuple of problem size for matrix multiplication
+        cutlass::gemm::GemmCoord problem_size(params.M, params.N, params.K);
+
+        typename cutlass::TensorRef<ElementInputA, LayoutInputA> tensor_a(reinterpret_cast<ElementInputA* >(params.a_ptr), params.K);
+        typename cutlass::TensorRef<ElementInputB, LayoutInputB> tensor_b(reinterpret_cast<ElementInputB* >(params.b_ptr), params.N);
+        typename cutlass::TensorRef<ElementOutput, LayoutOutput> tensor_c(reinterpret_cast<ElementOutput* >(params.c_ptr), params.N);
+
+        // Initialize alpha and beta for dot product computation
+        ElementComputeEpilogue alpha = ElementComputeEpilogue(1);
+        ElementComputeEpilogue beta = ElementComputeEpilogue(0);
+
+        // Split K dimension into 1 partitions
+        int split_k_slices = 1;
+
+        // Create a tuple of gemm kernel arguments. This is later passed as arguments to launch instantiated CUTLASS kernel
+        typename Gemm::Arguments arguments{problem_size,  // <- problem size of matrix multiplication
+                                            tensor_a,  // <- reference to matrix A on device
+                                            tensor_b,  // <- reference to matrix B on device
+                                            tensor_c,  // <- reference to matrix C on device
+                                            tensor_c,  // <- reference to matrix D on device
+                                            {alpha, beta},          // <- tuple of alpha and beta
+                                            split_k_slices};        // <- k-dimension split factor
+
+        // Instantiate CUTLASS kernel depending on templates
+        Gemm gemm_op;
+        // Check the problem size is supported or not 
+        cutlass::Status status = gemm_op.can_implement(arguments);
+        CUTLASS_CHECK(status);
+
+        status = gemm_op(arguments);
+        CUTLASS_CHECK(status);
+    }
+    // method 2: Launch kernel written by WMMA API
+    else if (params.backend == Backend::WMMA)
+    {
+        constexpr int BM = 128;
+        constexpr int BN = 128;
+        constexpr int BK = 32;
+        constexpr int WM = 32;
+        constexpr int WN = 32;
+
+        int BX = (params.N + BN - 1) / BN;
+        int BY = (params.M + BM - 1) / BM;
+
+        dim3 dimGrid(BX, BY);
+        dim3 dimBlock((BM/WM)*(BN/WN)*32);
+        wmma_kernel::gemm<BM,BN,BK,WM,WN><<<dimGrid, dimBlock, 0, stream>>>(reinterpret_cast<__half* >(params.a_ptr), reinterpret_cast<__half* >(params.b_ptr), reinterpret_cast<__half* >(params.c_ptr), params.M, params.N, params.K);
+        CUDA_CHECK(cudaDeviceSynchronize());
+        CUDA_CHECK(cudaPeekAtLastError());
+    }
+    // method 3: Launch kernel written in CUTE
+    else if (params.backend == Backend::CUTE)
+    {  
+        using namespace cute;
+        cute_kernel::Gemm_traits gemm_traits(params.M, params.N, params.K);
+        auto dimGrid = gemm_traits.get_grid_shape();
+        auto dimBlock = gemm_traits.get_block_shape();
+        std::cout << "dimGrid " << dimGrid.x << " " << dimGrid.y << " " << dimGrid.z << std::endl;
+        std::cout << "dimBlock " << dimBlock.x << " " << dimBlock.y << " " << dimBlock.z << std::endl;
+        cute_kernel::gemm<<<dimGrid, dimBlock, 0, stream>>>(gemm_traits);
+        CUDA_CHECK(cudaDeviceSynchronize());
+        CUDA_CHECK(cudaPeekAtLastError());
     }
 
     if constexpr (DoTime){
         timer.stop();
         double runtime = timer.elapsed_millis();
-        double gflops = 2 * double(problem_size.product()) / 1e6 / runtime; // Two flops per multiply-add
+        double gflops = 2 * double(params.M) * double(params.N) * double(params.K) / 1e9 / runtime; // Two flops per multiply-add
 
         std::cout << "Volta Half GEMM" << ":\n";
         std::cout << "Runtime: " << runtime << " ms\n";
-        std::cout << "GFLOPs: " << gflops  << "\n";
+        std::cout << "TFLOPs: " << gflops  << "\n";
     }
 }
     

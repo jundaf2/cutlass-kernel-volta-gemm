@@ -3,11 +3,13 @@
 #include <ATen/cuda/CUDAContext.h>
 #include <c10/cuda/CUDAGuard.h>
 #include "fp16_gemm.h"
+#include <string>
 
 #define CHECK_SHAPE(x, ...) TORCH_CHECK(x.sizes() == torch::IntArrayRef({__VA_ARGS__}), #x " must have shape (" #__VA_ARGS__ ")")
 
 at::Tensor gemm_fp16(const at::Tensor &A,     
-        const at::Tensor &B  
+        const at::Tensor &B,
+        const std::string backend_name
 ){
     auto dprops = at::cuda::getCurrentDeviceProperties();
     const auto a_shape = A.sizes();
@@ -45,6 +47,16 @@ at::Tensor gemm_fp16(const at::Tensor &A,
     params.a_ptr = A.data_ptr();
     params.b_ptr = B.data_ptr();
     params.c_ptr = C.data_ptr();
+
+    if(backend_name == std::string("cutlass")){
+        params.backend = volta::Backend::CUTLASS;
+    }
+    else if(backend_name == std::string("wmma")){
+        params.backend = volta::Backend::WMMA;
+    }
+    else if(backend_name == std::string("cute")){
+        params.backend = volta::Backend::CUTE;
+    }
 
     volta::run_gemm_fp16(params, stream);    
 
