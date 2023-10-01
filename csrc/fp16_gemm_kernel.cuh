@@ -30,9 +30,10 @@ struct Gemm_traits {
   using WarpTileShape  = Shape<_32, _32, _32>;
   
   using MMA_Atom_Arch = MMA_Atom<cute::SM70_8x8x4_F32F16F16F32_TN>;
-
-  using MMAThrLayout = Layout<Shape<_8,_8,_1>>; // [1, warp tile size] = _M/2*16, _N/2*16, _K*4   [2, how many warps] = _M*_N*_K/((16/8)*(16/8)*(4/4)) = (_M/2) * (_N/2) * _K
-  using MMAValLayout = Layout<Shape<_1,_1,_16>>; // warp register tile repeat how many times = _M*_N*_K
+  using MMAThrLayout = Layout<Shape<_4,_2>,Stride<_1,_16>>;
+  using MMAValLayout = Layout<Shape<Shape<_2,_2,_2>,Shape<_2,_2,_2>>, Stride<Stride<_1,_16,_4>,Stride<_8,_2,_32>>>;
+  // using MMAThrLayout = Layout<Shape<_8,_8,_4>>; // [1, warp tile size] = _M/2*16, _N/2*16, _K*4   [2, how many warps] = _M*_N*_K/((16/8)*(16/8)*(4/4)) = (_M/2) * (_N/2) * _K
+  // using MMAValLayout = Layout<Shape<_1,_1,_16>>; // warp register tile repeat how many times = _M*_N*_K
   using TiledMMA = TiledMMA<MMA_Atom_Arch, MMAThrLayout, MMAValLayout>; //  , Permutations
 
   static constexpr uint32_t MaxThreadsPerBlock = cute::size(TiledMMA{});
@@ -74,7 +75,7 @@ struct Gemm_traits {
   CUTE_HOST_DEVICE
   dim3
   get_block_shape() {
-    return dim3(MaxThreadsPerBlock, 1, 1);
+    return dim3(MaxThreadsPerBlock, 1, 1)
   }
 };
 
